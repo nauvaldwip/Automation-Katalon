@@ -29,4 +29,9 @@
       <initValue>'ADMINZ'</initValue>
       <name>wrong_username</name>
    </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'C:\\Users\\Asus\\Pictures\\Random\\flag.jpg'</initValue>
+      <name>imageUpload</name>
+   </GlobalVariableEntity>
 </GlobalVariableEntities>

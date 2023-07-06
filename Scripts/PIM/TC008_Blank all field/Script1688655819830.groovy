@@ -23,18 +23,39 @@ WebUI.navigateToUrl(GlobalVariable.url)
 
 WebUI.maximizeWindow()
 
-String str = CustomKeywords.'random_string.generateRandomString'(7)
+WebUI.setText(findTestObject('loginPage/usernameLogin'), GlobalVariable.usernameLogin)
 
-WebUI.setText(findTestObject('loginPage/usernameLogin'), str)
+WebUI.setText(findTestObject('loginPage/passwordLogin'), GlobalVariable.passwordLogin)
 
 WebUI.click(findTestObject('loginPage/loginButton'))
 
 WebUI.delay(5)
 
-WebUI.verifyElementText(findTestObject('loginPage/alert_usernameRequired'), 'Required')
+WebUI.click(findTestObject('pimPage/ADD_EMPLOYEE/menu_PIM'))
 
-WebUI.verifyElementText(findTestObject('loginPage/alert_passwordRequired'), 'Required')
+WebUI.click(findTestObject('pimPage/ADD_EMPLOYEE/Add_PIM'))
 
-@Keyword
+'fungsi CTRL + A'
+WebUI.sendKeys(findTestObject('pimPage/ADD_EMPLOYEE/employeeId_field'), Keys.chord(Keys.CONTROL, 'a'))
 
+'fungsi backspace'
+WebUI.sendKeys(findTestObject('pimPage/ADD_EMPLOYEE/employeeId_field'), Keys.chord(Keys.BACK_SPACE))
+
+WebUI.click(findTestObject('pimPage/ADD_EMPLOYEE/loginDetail_button'))
+
+WebUI.click(findTestObject('pimPage/ADD_EMPLOYEE/Save_PIM'))
+
+WebUI.verifyElementText(findTestObject('pimPage/ADD_EMPLOYEE/alert_firstName'), 'Required')
+
+WebUI.verifyElementText(findTestObject('pimPage/ADD_EMPLOYEE/alert_password'), 'Required')
+
+WebUI.verifyElementText(findTestObject('pimPage/ADD_EMPLOYEE/alert_lastName'), 'Required')
+
+WebUI.verifyElementText(findTestObject('pimPage/ADD_EMPLOYEE/alert_username'), 'Required')
+
+WebUI.verifyElementText(findTestObject('pimPage/ADD_EMPLOYEE/alert_password'), 'Required')
+
+WebUI.verifyElementText(findTestObject('pimPage/ADD_EMPLOYEE/alert_confirmPassword'), 'Required')
+
+WebUI.delay(2)
 

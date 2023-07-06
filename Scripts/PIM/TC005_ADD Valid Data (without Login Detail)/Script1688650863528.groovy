@@ -21,13 +21,41 @@ WebUI.openBrowser('')
 
 WebUI.navigateToUrl(GlobalVariable.url)
 
-WebUI.click(findTestObject('loginPage/loginButton'))
-
 WebUI.maximizeWindow()
+
+WebUI.setText(findTestObject('loginPage/usernameLogin'), GlobalVariable.usernameLogin)
+
+WebUI.setText(findTestObject('loginPage/passwordLogin'), GlobalVariable.passwordLogin)
+
+WebUI.click(findTestObject('loginPage/loginButton'))
 
 WebUI.delay(5)
 
-WebUI.verifyElementText(findTestObject('loginPage/alert_usernameRequired'), 'Required')
+WebUI.click(findTestObject('pimPage/ADD_EMPLOYEE/menu_PIM'))
 
-WebUI.verifyElementText(findTestObject('loginPage/alert_passwordRequired'), 'Required')
+WebUI.click(findTestObject('pimPage/ADD_EMPLOYEE/Add_PIM'))
+
+WebUI.setText(findTestObject('pimPage/ADD_EMPLOYEE/firstName_field'), firstName)
+
+WebUI.setText(findTestObject('pimPage/ADD_EMPLOYEE/middleName_field'), midleName)
+
+WebUI.setText(findTestObject('pimPage/ADD_EMPLOYEE/lastName_field'), lastName)
+
+'fungsi CTRL + A'
+WebUI.sendKeys(findTestObject('pimPage/ADD_EMPLOYEE/employeeId_field'), Keys.chord(Keys.CONTROL, 'a'))
+
+'fungsi backspace'
+WebUI.sendKeys(findTestObject('pimPage/ADD_EMPLOYEE/employeeId_field'), Keys.chord(Keys.BACK_SPACE))
+
+WebUI.setText(findTestObject('pimPage/ADD_EMPLOYEE/employeeId_field'), employeeId)
+
+WebUI.uploadFile(findTestObject('pimPage/ADD_EMPLOYEE/Add_image'), GlobalVariable.imageUpload)
+
+WebUI.delay(5)
+
+WebUI.click(findTestObject('pimPage/ADD_EMPLOYEE/Save_PIM'))
+
+WebUI.verifyElementPresent(findTestObject('pimPage/ADD_EMPLOYEE/alert_successSaved'), 4)
+
+WebUI.delay(2)
 
